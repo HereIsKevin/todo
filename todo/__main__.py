@@ -1,7 +1,7 @@
 import sys
 
 import PySide6.QtQuick as _  # needed for PyInstaller
-from PySide6.QtGui import QFontDatabase, QGuiApplication
+from PySide6.QtGui import QFontDatabase, QGuiApplication, QIcon
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtQuickControls2 import QQuickStyle
 
@@ -13,6 +13,7 @@ if __name__ == "__main__":
     app.setOrganizationName("HereIsKevin")
     app.setOrganizationDomain("hereiskevin.dev")
     app.setApplicationName("Todo")
+    app.setWindowIcon(QIcon(":/icons/todo.png"))
 
     engine = QQmlApplicationEngine()
 
