@@ -7,6 +7,7 @@
     <qresource>
         <file>./icons/add.svg</file>
         <file>./icons/delete.svg</file>
+        <file>./icons/todo.png</file>
     </qresource>
     <qresource>
         <file>./qml/Todo.qml</file>
