@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Controls.Material
 import QtQuick.Layouts
 
 Pane {
@@ -47,7 +46,6 @@ Pane {
             id: textField
 
             Layout.fillWidth: true
-            Layout.bottomMargin: -5 // compensate for bottom line (use bottomInset?)
 
             selectByMouse: true
             wrapMode: TextField.Wrap
@@ -56,8 +54,6 @@ Pane {
         }
 
         RoundButton { // use ToolButton?
-            Material.elevation: 0 // remove shadow and background
-
             icon.source: "qrc:/icons/delete.svg" // use icon.name?
             onClicked: root.remove()
         }

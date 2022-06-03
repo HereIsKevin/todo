@@ -17,9 +17,9 @@ ScrollView {
             text: contents
             onTextChanged: contents = text
 
-            topPadding: 5 // too much top padding by default
-            bottomPadding: 5 // too much bottom padding by default
-            width: view.width + 5 // misaligned at right (use rightPadding?)
+            topPadding: 7 // too much top padding by default
+            bottomPadding: 7 // too much bottom padding by default
+            width: view.width - 5 // not enough right padding (use rightPadding?)
 
             onRemove: view.model.remove(index)
         }

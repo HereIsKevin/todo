@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     engine = QQmlApplicationEngine()
 
-    QQuickStyle.setStyle("Material")
+    QQuickStyle.setStyle("Universal")
 
     QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
     QFontDatabase.addApplicationFont(":/fonts/Roboto-Medium.ttf")
