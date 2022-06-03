@@ -9,6 +9,11 @@ import todo.resources as _  # compiled resources
 
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
+
+    app.setOrganizationName("HereIsKevin")
+    app.setOrganizationDomain("hereiskevin.dev")
+    app.setApplicationName("Todo")
+
     engine = QQmlApplicationEngine()
 
     QQuickStyle.setStyle("Material")
