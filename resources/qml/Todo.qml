@@ -7,6 +7,12 @@ ApplicationWindow {
 
     property string data: ""
 
+    Material.accent: Material.color(Material.Grey, Material.Shade900)
+    Material.background: Material.color(Material.Grey, Material.Shade50)
+    Material.foreground: Material.color(Material.Grey, Material.Shade900)
+    Material.primary: Material.color(Material.Grey, Material.Shade50)
+    Material.theme: Material.Light
+
     title: qsTr("Todo")
     visible: true
 
