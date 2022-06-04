@@ -21,8 +21,12 @@ ApplicationWindow {
     minimumHeight: 300
 
     header: TodoToolBar {
+        clearAllEnabled: model.count > 0
+        clearCompletedCheck: model.hasCompleted
+
         onAdd: model.add()
-        onClear: clearDialog.open()
+        onClearAll: clearAllDialog.open()
+        onClearCompleted: clearCompletedDialog.open()
     }
 
     TodoList {
@@ -37,7 +41,7 @@ ApplicationWindow {
     }
 
     Dialog {
-        id: clearDialog
+        id: clearAllDialog
 
         anchors.centerIn: Overlay.overlay
 
@@ -47,6 +51,23 @@ ApplicationWindow {
 
         Component.onCompleted: standardButton(Dialog.Ok).text = qsTr("Clear")
         onAccepted: model.clear()
+
+        Label {
+            text: qsTr("You can't undo this action.")
+        }
+    }
+
+    Dialog {
+        id: clearCompletedDialog
+
+        anchors.centerIn: Overlay.overlay
+
+        title: qsTr("Are you sure you want to clear all completed todo items?")
+        standardButtons: Dialog.Ok | Dialog.Cancel
+        modal: true
+
+        Component.onCompleted: standardButton(Dialog.Ok).text = qsTr("Clear")
+        onAccepted: model.clearCompleted()
 
         Label {
             text: qsTr("You can't undo this action.")
