@@ -52,6 +52,7 @@ Pane {
             selectByMouse: true
             wrapMode: TextField.Wrap
 
+            Component.onCompleted: !text && forceActiveFocus()
             Keys.onEscapePressed: focus = false
         }
 
