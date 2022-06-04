@@ -22,7 +22,7 @@ ApplicationWindow {
 
     header: TodoToolBar {
         onAdd: model.add()
-        onClear: model.clear()
+        onClear: clearDialog.open()
     }
 
     TodoList {
@@ -31,13 +31,25 @@ ApplicationWindow {
         model: TodoModel {
             id: model
 
-            Component.onCompleted: {
-                if (settings.data) {
-                    deserialize(JSON.parse(settings.data))
-                }
-            }
-
+            Component.onCompleted: settings.data && deserialize(JSON.parse(settings.data))
             onUpdate: settings.data = JSON.stringify(serialize())
+        }
+    }
+
+    Dialog {
+        id: clearDialog
+
+        anchors.centerIn: Overlay.overlay
+
+        title: qsTr("Are you sure you want to clear all todo items?")
+        standardButtons: Dialog.Ok | Dialog.Cancel
+        modal: true
+
+        Component.onCompleted: standardButton(Dialog.Ok).text = qsTr("Clear")
+        onAccepted: model.clear()
+
+        Label {
+            text: qsTr("You can't undo this action.")
         }
     }
 
