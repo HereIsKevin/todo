@@ -5,8 +5,12 @@ import QtQuick.Layouts
 ToolBar {
     id: root
 
+    property bool clearAllEnabled: true
+    property var clearCompletedCheck: () => true
+
     signal add
-    signal clear
+    signal clearAll
+    signal clearCompleted
 
     RowLayout {
         anchors.fill: parent
@@ -22,7 +26,31 @@ ToolBar {
 
         ToolButton {
             text: qsTr("Clear")
-            onClicked: root.clear()
+            enabled: clearAllEnabled && !menu.opened
+
+            onClicked: {
+                if (clearCompletedCheck()) {
+                     menu.open()
+                } else {
+                    root.clearAll()
+                }
+            }
+
+            Menu {
+                id: menu
+
+                y: parent.height
+
+                MenuItem {
+                    text: "Clear All"
+                    onTriggered: root.clearAll()
+                }
+
+                MenuItem {
+                    text: "Clear Completed"
+                    onTriggered: root.clearCompleted()
+                }
+            }
         }
     }
 }
