@@ -46,8 +46,8 @@ Pane {
         TextField { // use TextArea?
             id: textField
 
+            Layout.alignment: Qt.AlignBottom // compensate for bottom line
             Layout.fillWidth: true
-            Layout.bottomMargin: -5 // compensate for bottom line (use bottomInset?)
 
             selectByMouse: true
             wrapMode: TextField.Wrap
