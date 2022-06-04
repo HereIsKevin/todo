@@ -12,7 +12,7 @@ ToolBar {
         anchors.fill: parent
 
         ToolButton {
-            icon.source: "qrc:/icons/add.svg" // use icon.name?
+            icon.source: "qrc:/icons/add.svg"
             onClicked: root.add()
         }
 

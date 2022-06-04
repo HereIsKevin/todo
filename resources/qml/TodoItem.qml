@@ -43,7 +43,7 @@ Pane {
             }
         }
 
-        TextField { // use TextArea?
+        TextField {
             id: textField
 
             Layout.alignment: Qt.AlignBottom // compensate for bottom line
@@ -52,13 +52,13 @@ Pane {
             selectByMouse: true
             wrapMode: TextField.Wrap
 
-            Keys.onEscapePressed: focus = false // only way to kill the focus
+            Keys.onEscapePressed: focus = false
         }
 
-        RoundButton { // use ToolButton?
+        RoundButton {
             Material.elevation: 0 // remove shadow and background
 
-            icon.source: "qrc:/icons/delete.svg" // use icon.name?
+            icon.source: "qrc:/icons/delete.svg"
             onClicked: root.remove()
         }
     }
