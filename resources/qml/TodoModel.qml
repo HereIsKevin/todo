@@ -8,6 +8,25 @@ ListModel {
         append({ status: Qt.Unchecked, contents: "" })
     }
 
+    function clearCompleted() {
+        for (let index = 0; index < count; index++) {
+            if (get(index).status === Qt.Checked) {
+                remove(index)
+                index--
+            }
+        }
+    }
+
+    function hasCompleted() {
+        for (let index = 0; index < count; index++) {
+            if (get(index).status === Qt.Checked) {
+                return true
+            }
+        }
+
+        return false
+    }
+
     function serialize() {
         const items = []
 
