@@ -31,8 +31,9 @@ if __name__ == "__main__":
 
     QQuickStyle.setStyle("Material")
 
-    QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
+    QFontDatabase.addApplicationFont(":/fonts/Roboto-Bold.ttf")
     QFontDatabase.addApplicationFont(":/fonts/Roboto-Medium.ttf")
+    QFontDatabase.addApplicationFont(":/fonts/Roboto-Regular.ttf")
 
     engine.load("qrc:/qml/Todo.qml")
 
