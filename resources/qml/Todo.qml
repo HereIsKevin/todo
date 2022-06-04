@@ -5,8 +5,6 @@ import Qt.labs.settings
 ApplicationWindow {
     id: window
 
-    property string data: ""
-
     Material.accent: Material.color(Material.Grey, Material.Shade900)
     Material.background: Material.color(Material.Grey, Material.Shade50)
     Material.foreground: Material.color(Material.Grey, Material.Shade900)
@@ -33,8 +31,13 @@ ApplicationWindow {
         model: TodoModel {
             id: model
 
-            Component.onCompleted: window.data && deserialize(JSON.parse(window.data))
-            onUpdate: window.data = JSON.stringify(serialize())
+            Component.onCompleted: {
+                if (settings.data) {
+                    deserialize(JSON.parse(settings.data))
+                }
+            }
+
+            onUpdate: settings.data = JSON.stringify(serialize())
         }
     }
 
@@ -45,6 +48,7 @@ ApplicationWindow {
         property alias y: window.y
         property alias width: window.width
         property alias height: window.height
-        property alias data: window.data
+
+        property string data: ""
     }
 }
