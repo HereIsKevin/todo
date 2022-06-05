@@ -5,7 +5,7 @@ ListModel {
     signal update
 
     function add() {
-        if (model.get(model.count - 1).contents) {
+        if (count === 0 || get(count - 1).contents) {
             append({ status: Qt.Unchecked, contents: "" })
         }
     }
