@@ -54,6 +54,8 @@ Pane {
 
             Component.onCompleted: !text && forceActiveFocus()
             Keys.onEscapePressed: focus = false
+
+            onFocusChanged: (!focus && !text) && root.remove()
         }
 
         RoundButton {
