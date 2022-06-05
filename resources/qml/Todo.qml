@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import Qt.labs.platform as Platform
 import Qt.labs.settings
 
 ApplicationWindow {
@@ -11,14 +12,12 @@ ApplicationWindow {
     Material.primary: Material.color(Material.Grey, Material.Shade50)
     Material.theme: Material.Light
 
-    title: qsTr("Todo")
-    visible: true
+    flags: Qt.Tool | Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
 
-    width: 450
+    width: 500
     height: 600
 
-    minimumWidth: 300
-    minimumHeight: 300
+    onActiveChanged: !window.active && window.hide() // hide on click outside
 
     header: TodoToolBar {
         clearAllEnabled: model.count > 0
@@ -74,13 +73,39 @@ ApplicationWindow {
         }
     }
 
+    Platform.SystemTrayIcon {
+        visible: true
+        icon.source: "qrc:/icons/todo.png"
+
+        Component.onCompleted: {
+            if (Qt.platform.os === "osx") {
+                icon.source = "qrc:/icons/checklist.svg"
+                icon.mask = true // changes color with dark menu on macOS
+            }
+        }
+
+        onActivated: {
+            if (window.visible) {
+                window.hide()
+            } else {
+                // geometry.x: aligns left of window to left of icon
+                // window.width / 2: moves left of window to center
+                // geometry.width / 2: moves left of icon to center
+                window.x = geometry.x - window.width / 2 + geometry.width / 2
+
+                // geometry.y: aligns top of window to top of icon
+                // geometry.height: moves top of icon to bottom
+                window.y = geometry.y + geometry.height
+
+                window.show()
+                window.raise()
+                window.requestActivate()
+            }
+        }
+    }
+
     Settings {
         id: settings
-
-        property alias x: window.x
-        property alias y: window.y
-        property alias width: window.width
-        property alias height: window.height
 
         property string data: ""
     }
