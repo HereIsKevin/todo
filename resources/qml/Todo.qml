@@ -35,8 +35,8 @@ ApplicationWindow {
         model: TodoModel {
             id: model
 
-            Component.onCompleted: settings.data && deserialize(JSON.parse(settings.data))
-            onUpdate: settings.data = JSON.stringify(serialize())
+            Component.onCompleted: settings.data && deserialize(settings.data)
+            onUpdate: settings.data = serialize()
         }
     }
 

@@ -36,13 +36,13 @@ ListModel {
             items.push(get(index))
         }
 
-        return items
+        return JSON.stringify(items)
     }
 
     function deserialize(items) {
         clear()
 
-        for (const { status, contents } of items) {
+        for (const { status, contents } of JSON.parse(items)) {
             append({ status, contents })
         }
     }
