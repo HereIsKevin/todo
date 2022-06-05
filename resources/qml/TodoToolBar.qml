@@ -17,7 +17,11 @@ ToolBar {
 
         ToolButton {
             icon.source: "qrc:/icons/add.svg"
-            onClicked: root.add()
+
+            action: Action {
+                shortcut: StandardKey.New
+                onTriggered: root.add()
+            }
         }
 
         Item {
