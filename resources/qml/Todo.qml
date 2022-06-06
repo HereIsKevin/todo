@@ -92,14 +92,44 @@ ApplicationWindow {
             if (window.visible) {
                 window.hide()
             } else {
+                let geometryX = geometry.x
+                let geometryY = geometry.y
+                let geometryWidth = geometry.width
+                let geometryHeight = geometry.height
+
+                // only macOS seems to automatically scale geometry by DPI
+                if (Qt.platform.os !== "osx") {
+                    geometryX /= Screen.devicePixelRatio
+                    geometryY /= Screen.devicePixelRatio
+                    geometryWidth /= Screen.devicePixelRatio
+                    geometryHeight /= Screen.devicePixelRatio
+                }
+
                 // geometry.x: aligns left of window to left of icon
                 // window.width / 2: moves left of window to center
                 // geometry.width / 2: moves left of icon to center
-                window.x = geometry.x - window.width / 2 + geometry.width / 2
+                const windowX = geometryX - window.width / 2 + geometryWidth / 2
+
+                // rightmost position for window still within screen
+                const maxX = Screen.width - window.width
+
+                // use maxX only if windowX goes offscreen
+                if (windowX > maxX) {
+                    window.x = maxX
+                } else {
+                    window.x = windowX
+                }
 
                 // geometry.y: aligns top of window to top of icon
                 // geometry.height: moves top of icon to bottom
-                window.y = geometry.y + geometry.height
+                // window.height: moves top of window to bottom
+                if (geometryY === 0) {
+                    // when icon is at the top of the screen
+                    window.y = geometryY + geometryHeight
+                } else {
+                    // when icon is at the bottom of the screen
+                    window.y = geometryY - window.height
+                }
 
                 window.show()
                 window.raise()
