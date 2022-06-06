@@ -33,30 +33,40 @@ ToolBar {
         }
 
         ToolButton {
-            text: qsTr("Clear")
-            enabled: clearAllEnabled && !menu.opened
+            icon.source: "qrc:/icons/more.svg"
+            enabled: !menu.opened
 
             onClicked: {
-                if (clearCompletedCheck()) {
-                     menu.open()
-                } else {
-                    root.clearAll()
-                }
+                menu.clearCompletedEnabled = root.clearCompletedCheck()
+                menu.open()
             }
 
             Menu {
                 id: menu
 
+                property bool clearCompletedEnabled: false
+
                 y: parent.height
 
                 MenuItem {
                     text: "Clear All"
+                    enabled: root.clearAllEnabled
+
                     onTriggered: root.clearAll()
                 }
 
                 MenuItem {
                     text: "Clear Completed"
+                    enabled: menu.clearCompletedEnabled
+
                     onTriggered: root.clearCompleted()
+                }
+
+                MenuSeparator {}
+
+                MenuItem {
+                    text: "Quit Todo"
+                    onTriggered: root.quit()
                 }
             }
         }

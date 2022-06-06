@@ -25,6 +25,7 @@ ApplicationWindow {
         onAdd: model.add()
         onClearAll: clearAllDialog.open()
         onClearCompleted: clearCompletedDialog.open()
+        onQuit: Qt.quit()
 
         function clearCompletedCheck() {
             return model.hasCompleted()
