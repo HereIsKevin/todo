@@ -20,7 +20,7 @@ ToolBar {
         anchors.fill: parent
 
         ToolButton {
-            icon.source: "qrc:/icons/add.svg"
+            icon.source: "../icons/add.svg"
 
             action: Action {
                 shortcut: StandardKey.New
@@ -33,7 +33,7 @@ ToolBar {
         }
 
         ToolButton {
-            icon.source: "qrc:/icons/more.svg"
+            icon.source: "../icons/more.svg"
             enabled: !menu.opened
 
             onClicked: {

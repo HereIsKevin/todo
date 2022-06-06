@@ -79,11 +79,11 @@ ApplicationWindow {
 
     Platform.SystemTrayIcon {
         visible: true
-        icon.source: "qrc:/icons/todo.png"
+        icon.source: "../icons/todo.png"
 
         Component.onCompleted: {
             if (Qt.platform.os === "osx") {
-                icon.source = "qrc:/icons/checklist.svg"
+                icon.source = "../icons/checklist.svg"
                 icon.mask = true // changes color with dark menu on macOS
             }
         }

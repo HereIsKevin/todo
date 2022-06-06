@@ -61,7 +61,7 @@ Pane {
         RoundButton {
             Material.elevation: 0 // remove shadow and background
 
-            icon.source: "qrc:/icons/delete.svg"
+            icon.source: "../icons/delete.svg"
             onClicked: root.remove()
         }
     }
