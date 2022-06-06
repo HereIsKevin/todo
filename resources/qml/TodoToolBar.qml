@@ -10,7 +10,6 @@ ToolBar {
     signal add
     signal clearAll
     signal clearCompleted
-    signal quit
 
     function clearCompletedCheck() {
         return true
@@ -60,13 +59,6 @@ ToolBar {
                     enabled: menu.clearCompletedEnabled
 
                     onTriggered: root.clearCompleted()
-                }
-
-                MenuSeparator {}
-
-                MenuItem {
-                    text: "Quit Todo"
-                    onTriggered: root.quit()
                 }
             }
         }
