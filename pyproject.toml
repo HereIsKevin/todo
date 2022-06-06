@@ -7,7 +7,7 @@ license = "GPL-3.0-or-later"
 
 [tool.poetry.dependencies]
 python = ">=3.10, <3.11"
-PySide6-Essentials = "^6.3.0"
+PyQt6 = "^6.3.0"
 
 [tool.poetry.dev-dependencies]
 pyinstaller = "^5.1"
