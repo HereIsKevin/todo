@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import Qt.labs.settings
 
 ApplicationWindow {
     id: window
@@ -78,8 +77,7 @@ ApplicationWindow {
         }
     }
 
-
-    Settings {
+    QtObject {
         id: settings
 
         property string data: ""
