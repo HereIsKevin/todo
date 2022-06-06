@@ -6,11 +6,15 @@ ToolBar {
     id: root
 
     property bool clearAllEnabled: true
-    property var clearCompletedCheck: () => true
 
     signal add
     signal clearAll
     signal clearCompleted
+    signal quit
+
+    function clearCompletedCheck() {
+        return true
+    }
 
     RowLayout {
         anchors.fill: parent

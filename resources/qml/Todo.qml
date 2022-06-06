@@ -21,11 +21,14 @@ ApplicationWindow {
 
     header: TodoToolBar {
         clearAllEnabled: model.count > 0
-        clearCompletedCheck: model.hasCompleted
 
         onAdd: model.add()
         onClearAll: clearAllDialog.open()
         onClearCompleted: clearCompletedDialog.open()
+
+        function clearCompletedCheck() {
+            return model.hasCompleted()
+        }
     }
 
     TodoList {
