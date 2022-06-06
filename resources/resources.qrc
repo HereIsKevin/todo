@@ -9,6 +9,7 @@
         <file>./icons/add.svg</file>
         <file>./icons/checklist.svg</file>
         <file>./icons/delete.svg</file>
+        <file>./icons/more.svg</file>
         <file>./icons/todo.png</file>
     </qresource>
     <qresource>
