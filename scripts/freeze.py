@@ -58,10 +58,8 @@ if __name__ == "__main__":
 
     if darwin:
         pattern = re.compile(r"BUNDLE\((.*)\)", flags=re.DOTALL)
+        replacement = rf'BUNDLE(\1version="{VERSION}")'
         contents = SPEC.read_text()
-
-        info_plist = {"LSUIElement": True}
-        replacement = rf'BUNDLE(\1version="{VERSION}", info_plist={info_plist})'
 
         SPEC.write_text(pattern.sub(replacement, contents))
 
