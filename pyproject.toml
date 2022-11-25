@@ -6,11 +6,11 @@ authors = ["Kevin Feng"]
 license = "GPL-3.0-or-later"
 
 [tool.poetry.dependencies]
-python = ">=3.10, <3.11"
-PySide6-Essentials = "^6.3.2"
+python = "~3.11"
+PySide6-Essentials = "^6.4.1"
 
 [tool.poetry.dev-dependencies]
-pyinstaller = "^5.5"
+pyinstaller = "^5.6.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
