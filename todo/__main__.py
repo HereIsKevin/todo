@@ -1,5 +1,6 @@
 import sys
 
+import PySide6.QtQuick as _
 from PySide6.QtGui import QFontDatabase, QGuiApplication, QIcon
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtQuickControls2 import QQuickStyle
