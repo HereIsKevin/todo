@@ -8,6 +8,7 @@ Todo is the dead simple todo list app.
 
 ## Why
 
+- **Powerful:** Right-click todo items to partially complete them.
 - **Simple:** Easily add todo items with one click, no unnecessary bloat included.
 - **Snappy:** Built with Qt and QML, Todo is GPU-accelerated and native with Electron bloat.
 - **Beautiful:** Lovingly crafted UI and made with components based on Material Design.
