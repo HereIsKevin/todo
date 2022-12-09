@@ -27,6 +27,29 @@ This is because signing an app requires a certificate, which costs $100 a year. 
 2. Clicking "Open" in the menu.
 3. Clicking "Open" in the popup again to confirm.
 
-## LICENSE
+## Building from Source
+
+Todo is super easy to build from source. However, it has only been tested on macOS and Windows, so it might behave unpredictably on Linux.
+
+### Prerequisites
+
+- [Python 3.11 or higher](https://www.python.org/downloads/)
+- [Poetry](https://python-poetry.org/docs/#installation)
+
+### Building
+
+```console
+$ git clone https://github.com/HereIsKevin/todo.git
+...
+$ cd ./todo/
+$ poetry install                    # install dependencies
+...
+$ poetry run ./scripts/compile.py   # compile resource files
+$ poetry run ./scripts/freeze.py    # build binary
+...
+$ poetry run todo                   # or just run app
+```
+
+## License
 
 [GPLv3](https://github.com/HereIsKevin/todo/blob/master/LICENSE)
