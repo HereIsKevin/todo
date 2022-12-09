@@ -3,7 +3,7 @@
 Todo is the dead simple todo list app.
 
 <div align="center">
-    <img src="./screenshots/app.png" alt="Screenshot of Todo">
+    <img width="546" src="./screenshots/app.png" alt="Screenshot of Todo">
 </div>
 
 ## Why
@@ -17,9 +17,15 @@ Todo is the dead simple todo list app.
 
 Download from the [latest binary](https://github.com/HereIsKevin/todo/releases/latest) from releases. Note that on first launch, a dialog similar to this one may pop up.
 
-![Todo cannot be opened](./screenshots/unsigned.png)
+<div align="center">
+    <img width="372" src="./screenshots/unsigned.png" alt="Screenshot of Todo">
+</div>
 
-This is because signing an app requires a certificate, which costs $100 a year. Instead, bypass this dialog by right-clicking on the app in finder, clicking open, and clicking open in the popup to confirm.
+This is because signing an app requires a certificate, which costs $100 a year. Instead, bypass this dialog by:
+
+1. Right-clicking on the app in Finder.
+2. Clicking "Open" in the menu.
+3. Clicking "Open" in the popup again to confirm.
 
 ## LICENSE
 
