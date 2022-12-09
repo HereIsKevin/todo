@@ -16,7 +16,11 @@ Todo is the dead simple todo list app.
 
 ## Installation
 
-Download from the [latest binary](https://github.com/HereIsKevin/todo/releases/latest) from releases. Note that on first launch, a dialog similar to this one may pop up.
+Download from the [latest binary](https://github.com/HereIsKevin/todo/releases/latest) from releases.
+
+### Bypass Gatekeeper
+
+Note that on first launch, a dialog similar to this one may pop up.
 
 <div align="center">
     <img width="372" src="./screenshots/unsigned.png" alt="Screenshot of Todo">
@@ -27,6 +31,15 @@ This is because signing an app requires a certificate, which costs $100 a year. 
 1. Right-clicking on the app in Finder.
 2. Clicking "Open" in the menu.
 3. Clicking "Open" in the popup again to confirm.
+
+### Launch at Login
+
+In order to launch Todo at login on macOS:
+
+1. Open System Preferences.
+2. Open the "Users & Groups" pane.
+3. Select "Login Items" for current user.
+4. Add Todo as a login item.
 
 ## Building from Source
 
